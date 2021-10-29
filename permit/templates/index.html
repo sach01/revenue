@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title">File Export</div>
+									</div>
+									<div class="card-body">
+										<div class="">
+											<div class="table-responsive">
+												<table id="example" class="table table-bordered text-nowrap key-buttons">
+													<thead>
+														
+														<tr>
+															<th data-priority="1">N0.</th>
+															<th data-priority="2">Business owner</th>
+															<th data-priority="2">start</th>
+															<th data-priority="2">last_paid</th>
+															<th data-priority="2">next_month</th>
+															<th data-priority="2">price</th>
+															<th data-priority="3">pending</th>
+															
+															
+														</tr>
+													</thead>
+													<tbody>
+														{% for i in payment %}
+						<tr>
+							<td>{{ forloop.counter }}</td>
+							<td>{{i.business}}</td>
+							<td>{{i.start}}</td>
+							<td>{{i.last_paid}}</td>
+							<td>{{i.next_month}}</td>
+							<td>{{i.price}}</td>
+							<td>{{i.pending}}</td>
+							</tr>
+					
+						<!-- Rest of your data (refer to https://datatables.net/examples/server_side/ for server side processing)-->
+						
+						{% endfor %}
+														
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+								{% endblock %}

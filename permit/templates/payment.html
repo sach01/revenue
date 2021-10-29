@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block content %}
+								<div class="card">
+									<div class="card-header">
+										<div class="card-title">Monthly Payment</div>
+									</div>
+									<div class="card-body">
+										<div class="">
+											<div class="table-responsive">
+												<table id="example" class="table table-bordered text-nowrap key-buttons">
+													<thead>
+                                                        business = models.ForeignKey(Business, on_delete=models.CASCADE)
+                                                        start = models.DateTimeField(max_length=20) #start date(check_in)
+                                                        last_paid = models.DateTimeField(max_length=20) #last date paid
+                                                        next_month = models.DateTimeField() #month paid for
+                                                        price = models.IntegerField()
+                                                        paid_count = models.IntegerField()
+                                                        remaining = models.DecimalField(max_digits=17, decimal_places=2, default=0.0)
+                                                        pending = models.IntegerField(max_length=20)
+														<tr>
+															<th data-priority="1">N0.</th>
+															<th data-priority="2">Owner</th>
+                                                            <th data-priority="2">Room</th>
+															<th data-priority="3">status</th>
+                                                            <th data-priority="3">amount</th>
+                                                            
+															
+														</tr>
+													</thead>
+													<tbody>
+														{% for i in payment %}
+						<tr>
+							<td>{{ forloop.counter }}</td>
+							<td>{{i.stall.owner}}</td>
+                            <td>{{i.stall.room}}</td>
+							<td>{% if i.status %}
+								<span class="rounded bg-green-400 py-1 px-5 text-xs font-bold">
+									<a>Unpaid</a>{% extends 'base.html' %}
+
+                                    {% block content %}
+                                                                    <div class="card">
+                                                                        <div class="card-header">
+                                                                            <div class="card-title">File Export</div>
+                                                                        </div>
+                                                                        <div class="card-body">
+                                                                            <div class="">
+                                                                                <div class="table-responsive">
+                                                                                    <table id="example" class="table table-bordered text-nowrap key-buttons">
+                                                                                        <thead>
+                                                                                            <tr>
+                                                                                                <th data-priority="1">N0.</th>
+                                                                                                <th data-priority="2">start date</th>
+                                                                                                <th data-priority="3">pending</th>
+                                                                                                <th data-priority="3">remaining</th>
+                                                                                                
+                                                                                            </tr>
+                                                                                        </thead>
+                                                                                        <tbody>
+                                                                                            {% for i in payment %}
+                                                            <tr>
+                                                                <td>{{ forloop.counter }}</td>
+                                                                <td>{{i.start}}</td>
+                                                                <td>{{i.pending}}</td>
+                                                                <td>{{i.remaining}}</td>
+                                                                </tr>
+                                                        
+                                                            <!-- Rest of your data (refer to https://datatables.net/examples/server_side/ for server side processing)-->
+                                                            
+                                                            {% endfor %}
+                                                                                            
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    {% endblock %}
+									</span>
+								{% else %}
+								  <span class="rounded bg-red-400 py-1 px-5 text-xs font-bold">Paid</span>
+								{% endif %}</td>
+                            <td>{{i.amount}}</td>
+                            <td>{{i.month}}</td>
+                           
+							</tr>
+					
+						<!-- Rest of your data (refer to https://datatables.net/examples/server_side/ for server side processing)-->
+						
+						{% endfor %}
+														
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+
+                                
+								{% endblock %}
